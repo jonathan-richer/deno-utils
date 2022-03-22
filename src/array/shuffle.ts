@@ -1,5 +1,5 @@
 
-export function shuffle<T>(arr: T[]) {
+export function shuffle<T>(arr: T[]): T[] {
 	const copy = arr.slice();
 	const result = [] as T[];
 	let n = arr.length;
