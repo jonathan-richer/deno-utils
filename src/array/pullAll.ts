@@ -9,12 +9,12 @@ import * as mod from '../../mod.ts';
  */
 export function pullAllBy<T, V = T>(
 	arr: T[],
-	exceptions: T[],
+	exceptions: V[],
 	iteratee: (v: T) => V =
 		mod.identity as mod.IdentityFunction<T, V>
 ): T[] {
 	for (let i = arr.length - 1; i >= 0; i--) {
-		if (exceptions.includes(arr[i]))
+		if (exceptions.includes(iteratee(arr[i])))
 			arr.splice(i, 1);
 	}
 	return arr;
